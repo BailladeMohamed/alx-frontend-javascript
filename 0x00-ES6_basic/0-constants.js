@@ -1,0 +1,18 @@
+// Using const and let for variable declaration in taskFirst and taskNext.
+// I prefer const when I can. But sometimes let is okay.
+
+export function taskFirst () {
+  const task = 'I prefer const when I can.';
+  return task;
+}
+
+export function getLast () {
+  return ' is okay';
+}
+
+export function taskNext () {
+  let combination = 'But sometimes let';
+  combination += getLast();
+
+  return combination;
+}
