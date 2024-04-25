@@ -1,33 +1,49 @@
 // for each attribute there is a getter and setter
 export default class HolbertonCourse {
   constructor(name, length, students) {
-    if (typeof name !== 'string') throw TypeError('Name must be a string');
+    if (typeof name !== 'string') {
+      throw new TypeError('Name must be a string');
+    } else if (typeof length !== 'number') {
+      throw new TypeError('Length must be a number');
+    } else if (!Array.isArray(students)) {
+      throw new TypeError('Students must be an array of strings');
+    }
+
     this._name = name;
-
-    if (typeof length !== 'number') throw TypeError('Length must be a number');
     this._length = length;
-
-    if (!Array.isArray(students) && students.every((i) => typeof i !== 'string')) throw TypeError('Students must be an array of strings');
     this._students = students;
   }
 
-  get name() { return this._name; }
-
-  set name(Name) {
-    if (typeof Name !== 'string') throw TypeError('Name must be a string');
-    this._name = Name;
+  get name() {
+    return this._name;
   }
 
-  get length() { return this._length; }
-
-  set length(Length) {
-    if (typeof Length !== 'number') throw TypeError('Length must be a number');
-    this._length = Length;
+  get length() {
+    return this._length;
   }
 
-  get students() { return this._students; }
-
-  set students(Students) {
-    if (!Array.isArray(Students) && Students.every((i) => typeof i !== 'string')) throw TypeError('Students must be an array of strings');
-    this._students = Students;
+  get students() {
+    return this._students;
   }
+
+  set name(name) {
+    if (typeof name !== 'string') {
+      throw new TypeError('Name must be a string');
+    }
+    this._name = name;
+  }
+
+  set length(length) {
+    if (typeof length !== 'number') {
+      throw new TypeError('Length must be a number');
+    }
+    this._length = length;
+  }
+
+  set students(students) {
+    if (!Array.isArray(students)) {
+      throw new TypeError('Students must be an array of strings');
+    }
+    this._students = students;
+  }
+}
