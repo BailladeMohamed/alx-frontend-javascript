@@ -1,13 +1,19 @@
 // tonomobila kadir vroom vroom
 import Car from './10-car';
 
-export default class EVCar extends Car {
+class EVCar extends Car {
   constructor(brand, motor, color, range) {
     super(brand, motor, color);
     this._range = range;
   }
 
-  static get [Symbol.species]() {
-    return Car;
+  cloneCar() {
+    const newCar = new Car();
+    newCar._brand = this._brand;
+    newCar._motor = this._motor;
+    newCar._color = this._color;
+    return newCar;
   }
 }
+
+export default EVCar;
