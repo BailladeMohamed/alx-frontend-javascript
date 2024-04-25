@@ -1,4 +1,3 @@
-// trying this again hope it works
 // nati7at sa7ab
 import Building from './5-building';
 
@@ -16,5 +15,4 @@ export default class SkyHighBuilding extends Building {
     return `Evacuate slowly the ${this._floors} floors`;
   }
 }
-
 //export default SkyHighBuilding;//
